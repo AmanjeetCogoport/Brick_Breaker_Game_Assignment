@@ -1,0 +1,9 @@
+**** Things that can be improve or added upon for this project ****
+
+
+1. update the code , when ball touch the brick at any corner then change their specifity one less and ball must bounce back.
+
+2. Add different obstacles in beetween the canvas and above the pad. and when ball touches to that obstacles then ball change their direction.
+
+3. add different level for this game, once user finished first level then they can go to second level as well.
+
