@@ -1,8 +1,4 @@
-# Brick_Breaker_Game_Assignment
- This Repo is for Assignment purpose which i am doing during the training period,  This assignment Contain a simple brick breaker game project. and game has been developed with the help of p5js javascript game  library.
-
-
- # How This Game Work and How its get build ( used OOPS concept for each object).
+# How This Game Work and How its get build ( used OOPS concept for each object).
 
  1. for every object of game like ball, pad and brick => i have seperatly defined class for each object and set all the functionality and attributes relate to that object.
 
@@ -17,4 +13,10 @@
 5. for Live, => if ball touchs 3 times at the ground then at the ground then only each time live of user decrease and ball will get bounce back from the ground. after that game will over and user will lost the game.
 
 6. when all the brick will gets wiped out from the canvas then user wins the game and the score will get refelected on the screen.
+
+
+# Brick_Breaker_Game_Assignment
+ This Repo is for Assignment purpose which i am doing during the training period,  This assignment Contain a simple brick breaker game project. and game has been developed with the help of p5js javascript game  library.
+
+
 
