@@ -73,7 +73,8 @@ function show_score() {
 
 // ********* creating classes for all the objects that this game has one by one :*******
 
-// creating Pad class
+
+// Defining Pad class
 class Pad {
     constructor(posX, posY) {
       this.l = width_pad;
@@ -101,4 +102,82 @@ class Pad {
     }
   }
 
+
+
+
+
+
+// ******* Defining ball class ******
+
+class Ball {
+    constructor(posX, posY, diameter, status) {
+      this.pos = createVector(posX, posY);
+      this.d = diameter;
+      this.r = diameter / 2;
+      this.v = createVector(3, -2.5); // create random 2d vector array for incresing the speed
+      this.color = random_color();
+      this.go = status;
+    }
   
+    // it take care of ball contacting with ball contacting with pad
+    update(pad) {
+      if (!(pad instanceof Pad) || this.show == false) {
+        return false;
+      }
+  
+      // console.log(this.v);
+      // this.v.setMag(6);
+      this.pos.add(this.v);
+  
+      let ballX = this.pos.x,
+        x = ballX;
+      let ballY = this.pos.y,
+        y = ballY;
+      let padX = pad.x;
+      let padWidth = pad.l;
+      let padHeight = pad.h;
+  
+      if (
+        ballX + 15 > padX &&
+        ballX - 15 < padX + padWidth &&
+        ballY < height + padHeight - 25 &&
+        ballY + 15 > height - 25
+      ) {
+        this.v.y = -this.v.y;
+        var padCenter = padX + padWidth / 2;
+        var ballDistFromPadCenter = ballX - padCenter;
+        this.v.x = ballDistFromPadCenter * 0.2;
+        // currScore += 1;
+      }
+  
+      if (x - this.r <= 0 || x + this.r >= width) {
+        this.v.x *= -1;
+      }
+      if (y - this.r <= 0) {
+        this.v.y *= -1;
+      }
+  
+      if (this.pos.y + this.r >= height) {
+        if (--live <= 1) {
+          this.show = false;
+          // this.v.setMag(6);
+        }
+        this.v.y *= -1;
+        // this.pos = createVector(startPosBallX, startPosBall)
+      }
+  
+      if (this.pos.y + this.r >= pad.y && x >= pad.x && x <= pad.x + pad.l) {
+        this.v.y *= -1;
+      }
+    }
+  
+    show() {
+      fill(this.color);
+      circle(this.pos.x, this.pos.y, this.d);
+    }
+  }
+  
+
+
+
+
