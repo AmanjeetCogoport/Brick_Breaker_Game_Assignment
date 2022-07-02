@@ -66,3 +66,39 @@ function show_score() {
     let number = parseInt(x + Math.random() * (y - x));
     return number;
   }
+
+
+
+
+
+// ********* creating classes for all the objects that this game has one by one :*******
+
+// creating Pad class
+class Pad {
+    constructor(posX, posY) {
+      this.l = width_pad;
+      this.h = height_pad;
+      this.y = posY;
+      this.x = posX - width_pad / 2;
+      this.speed = 5.5;
+    }
+  
+    show() {
+      if (this.x <= 0) {
+        this.x = 0;
+      }
+  
+      if (this.x + this.l >= width) {
+        this.x = width - this.l;
+      }
+  
+      fill(random_color());
+      rect(this.x, this.y, this.l, this.h, 10);
+    }
+  
+    move(dir) {
+      this.x += dir * this.speed;
+    }
+  }
+
+  
