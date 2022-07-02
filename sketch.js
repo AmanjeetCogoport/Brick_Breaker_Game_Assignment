@@ -181,3 +181,49 @@ class Ball {
 
 
 
+  // init takes 1 parameter g; if g is true, the ball moves; if g is false ball stay still.
+
+function startGame(g) {
+    briks = [];
+    // pad = new Pad(width / 2, height - 60);
+    pad = new Pad(width / 2, height - 30);
+    ball = new Ball(width / 2, height / 2, ball_diameter, g);
+  
+    let space1 = (width - 500) / 6;
+    let space2 = (width - 300) / 4;
+  
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 5; j++) {
+        briks.push(new Brik(j * (100 + space1) + space1, 50 * i + 60));
+      }
+    }
+  
+    // for (let j = 0; j < 3; j++) {
+    //   briks.push(new Brik(j * (100 + space2) + space2, 150));
+    // }
+  }
+  
+  function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+      direction = "left";
+    } else if (keyCode === RIGHT_ARROW) {
+      direction = "right";
+    }
+    if (keyCode === 32) {
+      startGame(true);
+    }
+  }
+  
+  function padControl() {
+    // Script for smooth pad control
+    if (direction === "left") {
+      pad.move(LEFT);
+    } else if (direction === "right") {
+      pad.move(RIGHT);
+    }
+  
+    if (!keyIsDown(LEFT_ARROW) && !keyIsDown(RIGHT_ARROW)) {
+      direction = "";
+    }
+    
+  }
