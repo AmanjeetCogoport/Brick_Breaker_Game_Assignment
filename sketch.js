@@ -261,7 +261,19 @@ function setup() {
           if (brik.updateState()) {
             briks.slice(b, 1);
   
-            
+            // checking condition for player to win the game i.e all bricks gets removed
+          //   console.log(briks.length);
+          if (++win >= 20) {
+            ball.show = false;
+            fill("green");
+            textSize(80);
+            textAlign(CENTER, CENTER);
+            msg = "You Win";
+            text(msg, width / 2, height / 2);
+            text("Score : " + score, width / 2, height / 2 + 100);
+            // noLoop();
+            // bricks = [];
+            ball.show();
 
 
               
