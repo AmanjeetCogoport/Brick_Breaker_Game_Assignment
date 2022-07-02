@@ -176,6 +176,32 @@ class Ball {
       circle(this.pos.x, this.pos.y, this.d);
     }
   }
+
+// ****** class for brick *******
+
+class Brik {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.h = random_num(20, 30);
+    this.l = random_num(50, 100);
+    this.state = random_num(1, 5); // this will show that when pad will go out
+    this.color = clr[this.state - 1];
+  }
+
+  show() {
+    if (this.state >= 0) {
+      fill(this.color);
+      rect(this.x, this.y, this.l, this.h);
+    }
+  }
+
+  updateState() {
+    this.state--;
+    if (this.state >= 1) this.color = clr[this.state - 1];
+    return this.state < 0;
+  }
+}
   
 
 
