@@ -2,7 +2,7 @@
  This Repo is for Assignment purpose which i am doing during the training period,  This assignment Contain a simple brick breaker game project. and game has been developed with the help of p5js javascript game  library.
 
 
- # How This Game Work and i build this game.
+ # How This Game Work and How its get build ( used OOPS concept for each object).
 
  1. for every object of game like ball, pad and brick => i have seperatly defined class for each object and set all the functionality and attributes relate to that object.
 
