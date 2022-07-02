@@ -283,8 +283,23 @@ function setup() {
     pad.show();
   
   
-
+    // Checking condition to loose the game
+  try {
+    ball.show();
+  } catch (e) {
+    // alert("Your Score is " + score);
     
+    fill("red");
+    textSize(80);
+    textAlign(CENTER, CENTER);
+    msg = "You Loss";
+    text(msg, width / 2, height / 2);
+    text("Score : " + score, width / 2, height / 2 + 100);
+    // noLoop();
+    bricks = [];
+    // ball.show();
+    if (!outloop--) ball.show();
+
     
     }
   }
